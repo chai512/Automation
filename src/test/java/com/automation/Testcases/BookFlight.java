@@ -29,13 +29,6 @@ public class BookFlight extends BaseClass {
         homepage.enterOrigin("Bangalore");
         Assert.assertTrue(true,"Origin entered");
     }
-//
-//    @Test
-//    public void enterDestDetails(){
-//        logger = report.createTest("Add dest details").info("Entering dest details");
-//        HomePage homepage = new HomePage(driver);
-//        homepage.enterDest("Hyderabad");
-//        Assert.assertTrue(true,"Dest entered");
-//    }
+
 
 }
