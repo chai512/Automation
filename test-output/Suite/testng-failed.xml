@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite thread-count="2" parallel="tests" name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="2" parallel="tests" name="BookFlight(failed)">
+    <classes>
+      <class name="com.automation.Testcases.BookFlight">
+        <methods>
+          <include name="setUpReports"/>
+          <include name="setUpBrowser"/>
+          <include name="onFailure"/>
+          <include name="login"/>
+        </methods>
+      </class> <!-- com.automation.Testcases.BookFlight -->
+    </classes>
+  </test> <!-- BookFlight(failed) -->
+  <test thread-count="2" parallel="tests" name="SearchFlight(failed)">
+    <classes>
+      <class name="com.automation.Testcases.SearchFlight">
+        <methods>
+          <include name="setUpReports"/>
+          <include name="setUpBrowser"/>
+          <include name="onFailure"/>
+          <include name="loginFail"/>
+        </methods>
+      </class> <!-- com.automation.Testcases.SearchFlight -->
+    </classes>
+  </test> <!-- SearchFlight(failed) -->
+</suite> <!-- Failed suite [Suite] -->
