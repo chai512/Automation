@@ -1,7 +1,10 @@
 package com.automation.pages;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -25,10 +28,13 @@ public class HomePage {
 
     public void enterOrigin(String origin){
         fromPlaceHolder.click();
-        enterFrom.sendKeys(origin);
+        Actions act = new Actions(driver);
+        act.keyDown(enterFrom, Keys.SHIFT).sendKeys("Bangalore").keyUp(enterFrom,Keys.SHIFT).build().perform();
+
     }
     public void enterDest(String dest){
         toPlaceHolder.click();
         enterTo.sendKeys(dest);
+        WebElement element = driver.findElement(By.xpath(""));
     }
 }

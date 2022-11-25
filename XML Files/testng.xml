@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Suite" >
-    <test name="BookFlight" parallel="methods" thread-count="3">
+<suite name="Suite">
+    <parameter name="browser" value="edge"></parameter>
+    <test name="edgeTest">
     <classes>
         <class name="com.automation.Testcases.BookFlight">
-        <methods>
-            <include name="enterOriginDetails"></include>
-            <include name="enterDestDetails"></include>
-        </methods>
         </class>
     </classes>
 </test>

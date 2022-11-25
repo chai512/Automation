@@ -21,7 +21,7 @@ public class SearchFlight extends BaseClass {
         logger.info("Enter dest details");
         HomePage homepage = new HomePage(driver);
         driver.findElement(By.xpath("//span[contains(text(),'From')]/following-sibling::p")).click();
-        driver.findElement(By.xpath("//span[contains(text(),'From')]/following-sibling::inpu")).sendKeys("Bangalore");
+        driver.findElement(By.xpath("//span[contains(text(),'From')]/following-sibling::input")).sendKeys("Bangalore");
 
     }
 

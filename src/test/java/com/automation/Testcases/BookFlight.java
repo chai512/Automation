@@ -17,6 +17,8 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
+import java.time.Duration;
+
 import static org.openqa.selenium.support.PageFactory.initElements;
 
 public class BookFlight extends BaseClass {
@@ -27,6 +29,7 @@ public class BookFlight extends BaseClass {
         logger = report.createTest("Add Origin details").info("Entering origin details");
         HomePage homepage = new HomePage(driver);
         homepage.enterOrigin("Bangalore");
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         Assert.assertTrue(true,"Origin entered");
     }
 

@@ -1,9 +1,6 @@
 package com.automation.pages;
 
-import com.automation.utility.BrowserFactory;
-import com.automation.utility.ConfigDataProvider;
-import com.automation.utility.ExcelDataProvider;
-import com.automation.utility.Helper;
+import com.automation.utility.*;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.MediaEntityBuilder;
@@ -14,6 +11,7 @@ import org.testng.ITestResult;
 import org.testng.annotations.*;
 
 import java.io.File;
+import java.sql.SQLException;
 
 public class BaseClass {
 
@@ -22,14 +20,17 @@ public class BaseClass {
     public ExcelDataProvider excelDataProvider;
     public  ExtentReports report;
     public  ExtentTest logger;
+    public DBConnection dbConnection;
 
     @Parameters("browser")
-    @BeforeClass
-    public void setUpBrowser(String browser){
+    @BeforeSuite
+    public void setUpBrowser(String browser) throws SQLException, ClassNotFoundException {
         ExtentSparkReporter spark = new ExtentSparkReporter(new File("./Reports/LatestReport.html"));
         report = new ExtentReports();
         report.attachReporter(spark);
+        dbConnection = new DBConnection();
         configDataProvider = new ConfigDataProvider();
+        BrowserFactory.startApi();
         driver = BrowserFactory.startApplication(driver,browser,configDataProvider.getQaUrl());
     }
 
@@ -42,7 +43,7 @@ public class BaseClass {
         }
 
     }
-    @AfterClass
+    @AfterSuite
     public void closeAllDrivers(){
         report.flush();
         driver.quit();
